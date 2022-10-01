@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -59,26 +60,24 @@ public abstract class ShellVerb implements Supplier<String> {
      * @param help <code>String</code> formatted to document what the verb and its options do. */
     public void setHelp(String help) {this.help = help;}
     /** Returns an immutable copy of the <code>optionMap</code> variable to iterate through and run methods from.
-     * @return {@link java.util.Collections#unmodifiableMap Map<String, Consumer>}
+     * @return {@link java.util.Collections#unmodifiableMap Map}
      * immutable copy of the <code>optionMap</code> variable. */
     public Map<String, Consumer<String>> getOptionMap() {return Collections.unmodifiableMap(this.optionMap);}
     /** Specifies a new value for the <code>optionMap</code> variable to link string input to class setter methods.
      * <p>The <code>String</code> key should match what the shell user will enter to specify a verb option.
      * The <code>Consumer</code> value should be specified as a lambda function converting a <code>String</code> value into the
      * appropriate setter method for one of this class' variables.</p>
-     * @param options {@link Map Map<String, Consumer>}
+     * @param options {@link Map Map}
      * a preset Map linking string values to this class' setter methods
-     * @see #processBoolean(String)
-     * @see #processInt(String)
-     * @see #processDouble(String) */
+     * @see #convertInt(String)
+     * @see #convertDouble(String) */
     public void setOptionMap(Map<String, Consumer<String>> options) {this.optionMap = options;}
-    /** Adds a new mapping of a <code>String</code> key to a {@link Consumer Consumer<String>} setter method for this class' variables.
+    /** Adds a new mapping of a <code>String</code> key to a {@link Consumer Consumer} setter method for this class' variables.
      * @param key <code>String</code> that will be entered by a user to specify a verb option.
      * @param value <code>Consumer</code> method, specified as a lambda function to pass a converted <code>String</code> value into the
      * appropriate setter method for one of this class's variables.
-     * @see #processBoolean(String)
-     * @see #processInt(String)
-     * @see #processDouble(String) */
+     * @see #convertInt(String)
+     * @see #convertDouble(String) */
     public void addOption(String key, Consumer<String> value) {
         this.optionMap.putIfAbsent(key, value);
     }
@@ -87,35 +86,49 @@ public abstract class ShellVerb implements Supplier<String> {
      * This method should be what is referenced via lambda function in the map for the ShellProcessor.
      * When entering a value for the <code>verb</code> parameter you should use a <code>new</code> declaration of a specific
      * <code>ShellVerb</code> subclass.
-     * @param values {@link Map Map<String, String} linking the option name <code>key</code> to the user specified <code>value</code>.
-     * @param verb {@link T T} any subclass extending from <code>ShellVerb</code> to be newly instantiated with each method call
+     * @param <T> Any class inheriting from the <code>ShellVerb</code> class. This will be a user-defined
+     *           verb with its own local variables and defined <code>get</code> method to perform whatever action is needed.
+     * @param values {@link Map Map} linking the option name <code>key</code> to the user specified <code>value</code>.
+     * @param verb New instance of {@link T T} to be newly instantiated with each method call
      *                        and have its <code>optionMap</code> checked against and executed from.
      * @return <code>String</code> to be returned to the console stating the execution status or success. */
     public static final <T extends ShellVerb> String call(Map<String, String> values, T verb) {
-        // code to iterate through the value map and set the needed values before running the verb function (last line)
+        // first creating a variable within the method scope to easily reference the immutable optionMap of the verb being called
         Map<String, Consumer<String>> opt = verb.getOptionMap();
+        /* iterating through the map of user provided strings, 1st string is the key, should match a key in the optionMap
+        * 2nd string is the value passed into the method used */
         values.forEach((s, m) -> {
+            // checking if the key matches any provided in the map, if so, call its setter method and pass the needed value
             if (opt.containsKey(s)) {
                 opt.get(s).accept(m);
+            // if the option is invalid, let the user know it couldn't be found
+            } else {
+                System.console().printf("No " + s + " option found!");
             }
         });
-        // last line of method
+        // MUST BE THE LAST LINE OF METHOD
+        // once the verbs values have been set appropriately, call the user specified action
         return verb.get();
-    } // end of run method
+    } // end of call method
 
-    // easier implementation to directly convert Strings to booleans for optionMap
-    protected static final boolean processBoolean(String s) {
-        return ObjectConverter.convert(s, Boolean::valueOf);
-    } // end of processBoolean method
-
-    // easier implementation to directly convert Strings to ints for optionMap
-    protected static final int processInt(String s) {
+    /** Used to convert a String value entered at the command line into an integer value for use by the get() method.
+     * Recommended use is in the optionMap as part of a lambda function to set a new local value for this class.
+     * @param s <code>String</code> value entered by the user in the command line to be converted.
+     * @return <code>int</code> value derived from the entered string.
+     * @see ObjectConverter
+     * @see ObjectConverter#convert(Object, Function) */
+    protected static final int convertInt(String s) {
         return ObjectConverter.convert(s, Integer::valueOf);
-    } // end of processInt method
+    } // end of convertInt method
 
-    // easier implementation to directly convert Strings into doubles for optionMap
-    protected static final double processDouble(String s) {
+    /** Used to convert a String value entered at the command line into a double value for use by the get() method.
+     * Recommended use is in the optionMap as part of a lambda function to set a new local value for this class.
+     * @param s <code>String</code> value entered by the user in the command line to be converted.
+     * @return <code>double</code> value derived from the entered string.
+     * @see ObjectConverter
+     * @see ObjectConverter#convert(Object, Function) */
+    protected static final double convertDouble(String s) {
         return ObjectConverter.convert(s, Double::valueOf);
-    } // end of processDouble method
+    } // end of convertDouble method
 
 } // end of ShellVerb class

@@ -13,9 +13,9 @@ public class VerbTest extends ShellVerb {
     public VerbTest() {
         super("This verb is a test of the shell processor");
         Map<String, Consumer<String>> temp = new HashMap<>();
-        temp.put("switch", p -> setOptSwitch(processBoolean(p)));
+        temp.put("switch", p -> setOptSwitch(!this.optSwitch));
         temp.put("text", this::setOptText);
-        temp.put("num", p -> setOptNum(processInt(p)));
+        temp.put("num", p -> setOptNum(convertInt(p)));
         this.setOptionMap(temp);
     }
 
