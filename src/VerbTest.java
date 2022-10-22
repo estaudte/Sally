@@ -1,9 +1,5 @@
 import com.shortn.sally.interfacing.ShellVerb;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Consumer;
-
 public class VerbTest extends ShellVerb {
 
     private boolean optSwitch;
@@ -12,17 +8,18 @@ public class VerbTest extends ShellVerb {
 
     public VerbTest() {
         super("This verb is a test of the shell processor");
-        Map<String, Consumer<String>> temp = new HashMap<>();
-        temp.put("switch", p -> setOptSwitch(!this.optSwitch));
-        temp.put("text", this::setOptText);
-        temp.put("num", p -> setOptNum(convertInt(p)));
-        this.setOptionMap(temp);
+        this.addOption("switch", p -> setOptSwitch(!this.optSwitch))
+                .addOption("text", this::setOptText)
+                .addOption("num", p -> setOptNum(convertInt(p)))
+                .addOption("s", p -> setOptSwitch(!this.optSwitch))
+                .addOption("t", this::setOptText)
+                .addOption("n", p -> setOptNum(convertInt(p)));
     }
 
     @Override
     public String get() {
         System.out.println("Switch on? " + optSwitch + "\nText entered: " + optText +
-                "\nNumber entered: " + optNum + " + 10 = " + optNum+10);
+                "\nNumber entered: " + optNum + " + 10 = " + (optNum+10));
         return "Success!";
     }
 

@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  * Provides the primary operation and structure for any shell commands (referred to as verbs).
  * <p>The values inherited from this class include a <code>String</code> to store the help documentation,
  * and a <code>Map</code> to store the options accepted by the verb.
- * The map of options links a string (what is typed after a - in the command) to a setter method for one of the verbs values.
+ * The {@link #optionMap map of options} links a string (what is typed after a - in the command) to a setter method for one of the verbs values.
  * The link to the setter method is specified via a lambda function. This class also includes
  * protected methods to easily pass string values into the needed primitive types for the map,
  * all implementers of the {@link ObjectConverter ObjectConverter} interface.</p>
@@ -32,17 +32,21 @@ public abstract class ShellVerb implements Supplier<String> {
 
     // fields
     /** Stores documentation about what the verb does.
+     * Recommended to include a list of accepted options / abbreviations.
      * Defaults to a warning stating that the verb has no help documentation.
      * @see #getHelp() 
      * @see #setHelp(String) */
     private String help = "This action does not include any help documentation.";
     /** Stores a list of option names (<code>String</code> keys), linked to the setter method used to change it ({@link Consumer Consumer} values).
+     * Users will reference these using either a double -- or a single - before the specified option name. If short (single -) notation is desired
+     * for an option, make sure to add a mapping of a single letter to the appropriate setter method. Otherwise, double -- notation will be required,
+     * along with typing the full option name.
      * @see #getOptionMap() 
      * @see #setOptionMap(Map)
      * @see #addOption(String, Consumer) */
     private Map<String, Consumer<String>> optionMap;
 
-    /** Constructs a new ShellVerb with the specified <code>help</code> documentation, and an empty <code>optionMap</code>.
+    /** Constructs a new <code>ShellVerb</code> with the specified {@link #help help} documentation, and an empty {@link #optionMap optionMap}.
      * <p>Inheriting classes should send their desired help docs via the <code>super</code> constructor,
      * and populate the <code>optionMap</code> using the {@link #addOption(String, Consumer) addOption} method.</p>
      * @param help <code>String</code> formatted to document what the verb and its options do.
@@ -54,18 +58,18 @@ public abstract class ShellVerb implements Supplier<String> {
 
     // getters & setters
     /** Returns the formatted <code>String</code> documenting what the verb and its options do.
-     * @return <code>String</code> value stored in the <code>help</code> variable. */
+     * @return <code>String</code> value stored in the {@link #help help}  field. */
     public String getHelp() {return this.help;}
-    /** Specifies a new value for the <code>help</code> variable to document the verb and option usage.
+    /** Specifies a new value for the {@link #help help} field to document the verb and option usage.
      * @param help <code>String</code> formatted to document what the verb and its options do. */
     public void setHelp(String help) {this.help = help;}
-    /** Returns an immutable copy of the <code>optionMap</code> variable to iterate through and run methods from.
+    /** Returns an immutable copy of the {@link #optionMap optionMap} field to iterate through and run methods from.
      * @return {@link java.util.Collections#unmodifiableMap Map}
      * immutable copy of the <code>optionMap</code> variable. */
     public Map<String, Consumer<String>> getOptionMap() {return Collections.unmodifiableMap(this.optionMap);}
-    /** Specifies a new value for the <code>optionMap</code> variable to link string input to class setter methods.
+    /** Specifies a new value for the {@link #optionMap optionMap} field to link string input to class setter methods.
      * <p>The <code>String</code> key should match what the shell user will enter to specify a verb option.
-     * The <code>Consumer</code> value should be specified as a lambda function converting a <code>String</code> value into the
+     * The {@link Consumer Consumer} value should be specified as a lambda function converting a <code>String</code> value into the
      * appropriate setter method for one of this class' variables.</p>
      * @param options {@link Map Map}
      * a preset Map linking string values to this class' setter methods
@@ -73,17 +77,19 @@ public abstract class ShellVerb implements Supplier<String> {
      * @see #convertDouble(String) */
     public void setOptionMap(Map<String, Consumer<String>> options) {this.optionMap = options;}
     /** Adds a new mapping of a <code>String</code> key to a {@link Consumer Consumer} setter method for this class' variables.
+     * Method calls can be chained as it returns a reference to the current object once run.
      * @param key <code>String</code> that will be entered by a user to specify a verb option.
      * @param value <code>Consumer</code> method, specified as a lambda function to pass a converted <code>String</code> value into the
      * appropriate setter method for one of this class's variables.
+     * @return <code>ShellVerb</code> reference to the current object. Allows multiple method calls to be chained.
      * @see #convertInt(String)
      * @see #convertDouble(String) */
-    public void addOption(String key, Consumer<String> value) {
+    public ShellVerb addOption(String key, Consumer<String> value) {
         this.optionMap.putIfAbsent(key, value);
+        return this;
     }
 
     /** Used to both set this class' local variables and run the user specified {@link #get() get} function based on them.
-     * This method should be what is referenced via lambda function in the map for the ShellProcessor.
      * When entering a value for the <code>verb</code> parameter you should use a <code>new</code> declaration of a specific
      * <code>ShellVerb</code> subclass.
      * @param <T> Any class inheriting from the <code>ShellVerb</code> class. This will be a user-defined
@@ -103,7 +109,7 @@ public abstract class ShellVerb implements Supplier<String> {
                 opt.get(s).accept(m);
             // if the option is invalid, let the user know it couldn't be found
             } else {
-                System.console().printf("No " + s + " option found!");
+                System.console().printf("No " + s + " option found!\n");
             }
         });
         // MUST BE THE LAST LINE OF METHOD
