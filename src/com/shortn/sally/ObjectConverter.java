@@ -1,15 +1,17 @@
 package com.shortn.sally;
 
+import com.shortn.sally.interfacing.ShellVerb;
+
 import java.util.function.Function;
 
 // a simple interface that allows you to create a processor to easily convert one object type to another
 // this method is used by the optionMap to more easily convert a string value into a different object
 /** Allows the creation of a processor method that will easily convert an object of one type into another.
- * <p>This interface's only method <code>convert</code> is used by the {@link com.shortn.sally.interfacing.ShellVerb ShellVerb} class
+ * <p>This interface's only method <code>convert</code> is used by the {@link ShellVerb ShellVerb} class
  * for 2 internal methods, <code>convertInt</code> and <code>convertDouble</code></p>
  * @author Ethan Staudte
  * @version 1.0.0
- * @see com.shortn.sally.interfacing.ShellVerb*/
+ * @see ShellVerb */
 public interface ObjectConverter {
     /** Converts any specified object into a new object of a different specified type, via a defined conversion function.
      * This method automatically enters the <code>in</code> parameter to the <code>action</code> parameter's {@link Function#apply apply}
