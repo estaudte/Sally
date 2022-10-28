@@ -137,10 +137,8 @@ public class ShellProcessor implements Runnable {
     public void run() {
         boolean isActive = true;
         while(isActive) {
-            // displaying prompt on the screen to get user input
-            System.console().printf(name + "#: ");
-            // grabbing user input and storing it as a string array, separating entries by spaces
-            String[] input = System.console().readLine().split(" ");
+            // grabbing user input (with prompt) and storing it as a string array, separating entries by spaces
+            String[] input = System.console().readLine(name+ "#: ").split(" ");
             // starting conditional checking what the user entered
             if (input[0].equals("exit")) {
                 // when the user enters the exit command, the shell processor loop terminates
@@ -218,7 +216,9 @@ public class ShellProcessor implements Runnable {
                     if (!in[i+1].startsWith("--") && !in[i+1].startsWith("-")) {
                         // using the reassignment when adding the next value here to reduce line count
                         res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length()-1)), in[i+=1]);
-                    } // end of check if the next value is an option
+                    } else {
+                        res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length() - 1)), null);
+                    }// end of check if the next value is an option
                 } else {
                     res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length()-1)), null);
                 } // end of check if there is a next value
