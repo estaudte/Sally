@@ -124,7 +124,7 @@ public abstract class ShellVerb implements Supplier<String> {
      * @return <code>int</code> value derived from the entered string.
      * @see ObjectConverter
      * @see ObjectConverter#convert(Object, Function) */
-    protected static final int convertInt(String s) {
+    public static final int convertInt(String s) {
         return ObjectConverter.convert(s, Integer::valueOf);
     } // end of convertInt method
 
@@ -134,7 +134,7 @@ public abstract class ShellVerb implements Supplier<String> {
      * @return <code>double</code> value derived from the entered string.
      * @see ObjectConverter
      * @see ObjectConverter#convert(Object, Function) */
-    protected static final double convertDouble(String s) {
+    public static final double convertDouble(String s) {
         return ObjectConverter.convert(s, Double::valueOf);
     } // end of convertDouble method
 
