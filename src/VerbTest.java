@@ -18,9 +18,8 @@ public class VerbTest extends ShellVerb {
 
     @Override
     public String get() {
-        System.out.println("Switch on? " + optSwitch + "\nText entered: " + optText +
-                "\nNumber entered: " + optNum + " + 10 = " + (optNum+10));
-        return "Success!";
+        return "Switch on? " + optSwitch + "\nText entered: " + optText +
+                "\nNumber entered: " + optNum + " + 10 = " + (optNum+10);
     }
 
     public boolean getOptSwitch() {
