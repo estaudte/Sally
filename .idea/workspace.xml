@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="Created basic annotations, started work on annotation processing.">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_22_2022_5_19_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_22_2022_5_19_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/ProcessTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/VerbTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/ObjectConverter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/annotations/ShellVerb.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/annotations/VerbOption.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/annotations/VerbOptions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/interfacing/ShellProcessor$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/interfacing/ShellProcessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/interfacing/ShellVerb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/annotations/Abbreviated.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/annotations/DefaultVal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/annotations/ProcessorBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/annotations/ShellProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/annotations/ShellVerb.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="AnnotationType" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2DBrtcsQNkQAAgI2nF3MXvZmQYu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ethan/IdeaProjects/Sally/src&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ethan\IdeaProjects\Sally" />
+      <recent name="C:\Users\Ethan\IdeaProjects\Sally\src" />
+      <recent name="C:\Users\Ethan\IdeaProjects\Sally\Javadoc" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="" />
+      <created>1660183539027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660183539027</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1664639048252</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664639048252</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Full Javadoc on needed classes. Excludes VerbTest as that is not to remain in the final framework.">
+      <created>1664643825680</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664643825680</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated .gitignore, added license, started work on ShellProcessor">
+      <created>1665267694811</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665267694811</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Finished ShellProcessor and documented.">
+      <created>1666472633764</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666472633764</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Rebuilt project structure">
+      <created>1666995014021</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666995014021</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed issue with shorthand boolean processing">
+      <created>1666996970183</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666996970183</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Created basic annotations, started work on annotation processing.">
+      <created>1667440068055</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667440068055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="f4b76dba-2048-4e91-ac5a-875fdb59b631">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f4b76dba-2048-4e91-ac5a-875fdb59b631" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Full Javadoc on needed classes. Excludes VerbTest as that is not to remain in the final framework." />
+    <MESSAGE value="Updated .gitignore, added license, started work on ShellProcessor" />
+    <MESSAGE value="Finished ShellProcessor and documented." />
+    <MESSAGE value="Rebuilt project structure" />
+    <MESSAGE value="Fixed issue with shorthand boolean processing" />
+    <MESSAGE value="Created basic annotations, started work on annotation processing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created basic annotations, started work on annotation processing." />
+  </component>
+</project>
