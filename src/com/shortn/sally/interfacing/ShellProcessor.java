@@ -230,16 +230,17 @@ public class ShellProcessor implements Runnable {
                 } // end of conditional for multiple option processing
                 // regardless of if the one option or multiple options are specified in shorthand, process the last option this way:
                 // check if there is a next value, if not, or if the next value isn't an option, add as boolean
+                String nextKey = String.valueOf(multOp.charAt(multOp.length()-1));
                 if (i < in.length-1) {
                     // checking if the next value is an option
                     if (!in[i+1].startsWith("--") && !in[i+1].startsWith("-")) {
                         // using the reassignment when adding the next value here to reduce line count
-                        res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length()-1)), in[i+=1]);
+                        res.putIfAbsent(nextKey, in[i+=1]);
                     } else {
-                        res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length() - 1)), null);
+                        res.putIfAbsent(nextKey, null);
                     }// end of check if the next value is an option
                 } else {
-                    res.putIfAbsent(String.valueOf(multOp.charAt(multOp.length()-1)), null);
+                    res.putIfAbsent(nextKey, null);
                 } // end of check if there is a next value
             } // end of conditional checking for option tags (either -- or -)
         } // end of for loop creating the map
@@ -305,7 +306,9 @@ public class ShellProcessor implements Runnable {
             } // end of conditional looking for start of string
             processed[n] = temp.toString();
         } // end of for loop processing / connecting strings
-        // truncating the array to get rid of the empty spaces at the end before returning it
-        return Arrays.stream(processed).filter(e -> (e != null && !e.isEmpty())).toArray(String[]::new);
+        // truncating the array to get rid of the empty spaces at the end before returning it (filter method)
+        // at this point also filtering through the final stream to remove the escape characters (map method)
+        return Arrays.stream(processed).filter(e -> (e != null && !e.isEmpty())).map((e ->
+                e.replace("\\\"", "\"").replace("\\'", "'"))).toArray(String[]::new);
     } // end of the linkStrings method
 } // end of ShellProcessor class

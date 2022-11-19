@@ -54,7 +54,7 @@ public abstract class ShellVerb implements Supplier<String> {
      * @see #addOption(String, Consumer) */
     public ShellVerb(String help) {
         this.help = help;
-        this.optionMap = new HashMap<String, Consumer<String>>();
+        this.optionMap = new HashMap<>();
     } // end of constructor
 
     // getters & setters
