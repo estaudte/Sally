@@ -1,4 +1,4 @@
 # Project exclude paths
 /src/VerbTest.java
 /src/ProcessTest.java
-/out
+/out/

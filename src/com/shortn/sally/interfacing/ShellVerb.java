@@ -99,7 +99,7 @@ public abstract class ShellVerb implements Supplier<String> {
      * @param verb New instance of {@link T T} to be newly instantiated with each method call
      *                        and have its <code>optionMap</code> checked against and executed from.
      * @return <code>String</code> to be returned to the console stating the execution status or success. */
-    public static final <T extends ShellVerb> String call(Map<String, String> values, T verb, Consumer<String> stdOut) {
+    public static final <T extends ShellVerb> String call(Map<String, String> values, T verb) {
         // first creating a variable within the method scope to easily reference the immutable optionMap of the verb being called
         Map<String, Consumer<String>> opt = verb.getOptionMap();
         /* iterating through the map of user provided strings, 1st string is the key, should match a key in the optionMap
@@ -110,7 +110,7 @@ public abstract class ShellVerb implements Supplier<String> {
                 opt.get(s).accept(m);
             // if the option is invalid, let the user know it couldn't be found
             } else {
-                stdOut.accept("ERROR: No " + s + " option found!\n");
+                System.out.print("ERROR: No " + s + " option found!\n");
             }
         });
         // MUST BE THE LAST LINE OF METHOD

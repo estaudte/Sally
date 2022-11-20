@@ -1,18 +1,13 @@
 package com.shortn.sally.interfacing;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Consumer;
+import java.util.*;
 import java.util.function.Supplier;
 
 /** Handles the input and output necessary to operate a complete shell application.
  * <p>This class handles all input processing and logic needed for user interaction with a list of {@link ShellVerb ShellVerbs}.
  * The primary value needed in any use of this class is the {@link #verbMap verbMap} which stores a list of defined verb constructors
- * and links them to the string value the user must enter to reference them. All output and input will be handled by the user specified
- * {@link #stdOut stdOut}and {@link #stdIn stdIn} methods. These can be any method that accepts a String (to put out) and returns a string
- * (input from user)</p>
+ * and links them to the string value the user must enter to reference them. All output and input will be handled by {@link System#in System.in}
+ * and {@link System#out System.out}, the location these print and read from can be overwritten in the Main class.</p>
  * <p>The recommended use of this class is to create a new instance assigned to a variable, then utilize that variable to map
  * the needed <code>Strings</code> to the accepted <code>ShellVerbs</code>, and finally call the {@link #run() run} method.
  * The program will loop within the <code>run</code> method until the user enters in an <code>exit</code> command.</p>
@@ -51,44 +46,25 @@ public class ShellProcessor implements Runnable {
     private String help = "There is no help documentation available for this shell interface.";
     /** Stores a list of verb names (<code>String keys</code>), to the associated verb instance (<code>ShellVerb constructors</code>).
      * The specified keys are what the processor checks user input against for valid commands.
-     * Each time a match is found, a new instance of the verb is created and passed into the {@link ShellVerb#call(Map, ShellVerb, Consumer) call()} method.
+     * Each time a match is found, a new instance of the verb is created and passed into the {@link ShellVerb#call(Map, ShellVerb) call()} method.
      * @see #getVerbMap() 
      * @see #setVerbMap(Map) 
      * @see #addVerb(String, Supplier) */
     private Map<String, Supplier<? extends ShellVerb>> verbMap = new HashMap<>();
 
-    /** A lambda function or method reference that will accept a string and print it to the user.
-     * This can be anything like System.console::print or System.out:println
-     * @see Consumer */
-    private final Consumer<String> stdOut;
-
-    /** A lambda function or method reference that will return a string input by the user.
-     * This can be anything like System.console::readLine or Scanner::nextLine
-     * @see Supplier*/
-    private final Supplier<String> stdIn;
-
-    /** Constructs a new <code>ShellProcessor</code> with the specified <code>help</code> documentation, the specified methods for stdOut and stdIn,
-     *  and an empty <code>verbMap</code>.
-     * @param help <code>String</code> formatted to document what the processor and its verbs do.
-     * @param stdOut {@link Consumer Consumer} accepting a <code>String</code> value and outputting it to the desired location for users to see.
-     * @param stdIn {@link Supplier Supplier} that reads and returns a <code>String</code> input by the user.*/
-    public ShellProcessor(String help, Consumer<String> stdOut, Supplier<String> stdIn) {
+    /** Constructs a new <code>ShellProcessor</code> with the specified <code>help</code> documentation and an empty <code>verbMap</code>.
+     * @param help <code>String</code> formatted to document what the processor and its verbs do.*/
+    public ShellProcessor(String help) {
         this.help = help;
-        this.stdOut = stdOut;
-        this.stdIn = stdIn;
     } // end of the simple constructor
 
-    /** Constructs a new <code>ShellProcessor</code> with the specified <code>name</code>, <code>help</code> documentation, the methods for stdOut
-     * and stdIn, and an empty <code>verbMap</code>.
+    /** Constructs a new <code>ShellProcessor</code> with the specified <code>name</code>, <code>help</code> documentation,
+     * and an empty <code>verbMap</code>.
      * @param name <code>String</code> to be displayed before the "#: " in the shell prompt.
-     * @param help <code>String</code> formatted to document what the processor and its verbs do.
-     * @param stdOut {@link Consumer Consumer} accepting a <code>String</code> value and outputting it to the desired location for users to see.
-     * @param stdIn {@link Supplier Supplier} that reads and returns a <code>String</code> input by the user.*/
-    public ShellProcessor(String name, String help, Consumer<String> stdOut, Supplier<String> stdIn) {
+     * @param help <code>String</code> formatted to document what the processor and its verbs do.*/
+    public ShellProcessor(String name, String help) {
         this.name = name;
         this.help = help;
-        this.stdOut = stdOut;
-        this.stdIn = stdIn;
     } // end of  full constructor
 
     /** Returns the "name" of the <code>ShellProcessor</code> application.
@@ -151,20 +127,21 @@ public class ShellProcessor implements Runnable {
 
     /** Starts the shell application running and handles all user input.
      * <p>This method will loop indefinitely until the user enters in the "exit" command.</p>
-     * <p>This method will print and read input using the stdIn and stdOut methods. </p> */
+     * <p>This method will print and read input using {@link System#in System.in} and {@link System#out System.out}</p> */
     public void run() {
         boolean isActive = true;
+        Scanner sc = new Scanner(System.in);
         while(isActive) {
             // grabbing user input (with prompt) and storing it as a string array, separating entries by spaces
-            stdOut.accept(name + "#: ");
-            String[] input = stdIn.get().split(" ");
+            System.out.print(name + "#: ");
+            String[] input = sc.nextLine().split(" ");
             // starting conditional checking what the user entered
             if (input[0].equals("exit")) {
                 // when the user enters the exit command, the shell processor loop terminates
                 isActive = false;
             } else if (input[0].equals("help")) {
                 // call the help function when the user enters that command
-                stdOut.accept(this.help(input) + "\n");
+                System.out.print(this.help(input) + "\n");
             } else if (this.getVerbMap().containsKey(input[0])) {
                 /* The syntax below is not the clearest so here is a brief run-down.
                 * The conditional statement above checks to see if the first string entered by the user is one of the verbMap's accepted commands.
@@ -187,14 +164,14 @@ public class ShellProcessor implements Runnable {
                 ShellVerb verbInstance = this.getVerbMap().get(input[0]).get();
                 if (input.length > 1) {
                     // only truncate the user input array if there are any options
-                    stdOut.accept(ShellVerb.call(asOptions(linkStrings(Arrays.copyOfRange(input, 1, input.length))), verbInstance, this.stdOut) + "\n");
+                    System.out.print(ShellVerb.call(asOptions(linkStrings(Arrays.copyOfRange(input, 1, input.length))), verbInstance) + "\n");
                 } else {
                     // otherwise skip the crazy processing and just run the command
-                    stdOut.accept(ShellVerb.call(new HashMap<>() {}, verbInstance, this.stdOut) + "\n");
+                    System.out.print(ShellVerb.call(new HashMap<>() {}, verbInstance) + "\n");
                 } // end of conditional checking if the input had any options or just a verb
             } else {
                 // if the entered verb is not found then it lets the user know and starts over
-                stdOut.accept(input[0] + " is not a known command.\n");
+                System.out.print(input[0] + " is not a known command.\n");
             } // end of the conditional checking the verb entered
         } // end of while loop to repeat the input / output process
     } // end of run method

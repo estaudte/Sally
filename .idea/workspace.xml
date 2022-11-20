@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="Added customizable stdOut and stdIn for ShellProcessor.">
+    <list default="true" id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="Adjusted to remove escape characters in string option input.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/interfacing/ShellProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sally/com/shortn/sally/interfacing/ShellProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProcessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellVerb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellVerb.java" afterDir="false" />
     </list>
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668733528360</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adjusted to remove escape characters in string option input.">
+      <created>1668902171414</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668902171414</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +197,7 @@
     <MESSAGE value="Created basic annotations, started work on annotation processing." />
     <MESSAGE value="Removed annotation section, updated gitignore to include more files" />
     <MESSAGE value="Added customizable stdOut and stdIn for ShellProcessor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added customizable stdOut and stdIn for ShellProcessor." />
+    <MESSAGE value="Adjusted to remove escape characters in string option input." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted to remove escape characters in string option input." />
   </component>
 </project>
