@@ -1,4 +1,4 @@
-package com.shortn.sally.interfacing;
+package com.shortn.sally;
 
 import java.util.*;
 import java.util.function.Supplier;

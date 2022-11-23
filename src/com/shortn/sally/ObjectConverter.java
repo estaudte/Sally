@@ -1,7 +1,5 @@
 package com.shortn.sally;
 
-import com.shortn.sally.interfacing.ShellVerb;
-
 import java.util.function.Function;
 
 // a simple interface that allows you to create a processor to easily convert one object type to another

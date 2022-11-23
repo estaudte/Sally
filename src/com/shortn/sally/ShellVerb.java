@@ -1,6 +1,4 @@
-package com.shortn.sally.interfacing;
-
-import com.shortn.sally.ObjectConverter;
+package com.shortn.sally;
 
 import java.util.Collections;
 import java.util.HashMap;

@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="Changed to rely on System.out and System.in for input and output.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0160ae4a-ffaa-4975-93b3-b88b005753bb" name="Changes" comment="Reorganized package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/ProcessTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/ProcessTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/VerbTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/VerbTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/ObjectConverter.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/ObjectConverter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/ShellProcessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/ShellProcessor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/ShellVerb.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/ShellVerb.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/interfacing/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/com/shortn/sally/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/shortn/sally/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/member-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javadoc/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/ObjectConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/ObjectConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/ShellProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shortn/sally/interfacing/ShellVerb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shortn/sally/ShellVerb.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +19,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -88,6 +66,20 @@
       <recent name="C:\Users\Ethan\IdeaProjects\Sally\src" />
       <recent name="C:\Users\Ethan\IdeaProjects\Sally\Javadoc" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ProcessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProcessTest" />
+      <module name="Sally" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ProcessTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -175,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668905227267</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cleaned up ShellProcessor and unneeded files">
+      <created>1669243277348</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669243277348</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +230,8 @@
     <MESSAGE value="Added customizable stdOut and stdIn for ShellProcessor." />
     <MESSAGE value="Adjusted to remove escape characters in string option input." />
     <MESSAGE value="Changed to rely on System.out and System.in for input and output." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed to rely on System.out and System.in for input and output." />
+    <MESSAGE value="Cleaned up ShellProcessor and unneeded files" />
+    <MESSAGE value="Reorganized package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized package" />
   </component>
 </project>
