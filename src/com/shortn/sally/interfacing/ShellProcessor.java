@@ -141,7 +141,7 @@ public class ShellProcessor implements Runnable {
                 isActive = false;
             } else if (input[0].equals("help")) {
                 // call the help function when the user enters that command
-                System.out.print(this.help(input) + "\n");
+                System.out.println(this.help(input));
             } else if (this.getVerbMap().containsKey(input[0])) {
                 /* The syntax below is not the clearest so here is a brief run-down.
                 * The conditional statement above checks to see if the first string entered by the user is one of the verbMap's accepted commands.
@@ -164,14 +164,14 @@ public class ShellProcessor implements Runnable {
                 ShellVerb verbInstance = this.getVerbMap().get(input[0]).get();
                 if (input.length > 1) {
                     // only truncate the user input array if there are any options
-                    System.out.print(ShellVerb.call(asOptions(linkStrings(Arrays.copyOfRange(input, 1, input.length))), verbInstance) + "\n");
+                    System.out.println(ShellVerb.call(asOptions(linkStrings(Arrays.copyOfRange(input, 1, input.length))), verbInstance));
                 } else {
                     // otherwise skip the crazy processing and just run the command
-                    System.out.print(ShellVerb.call(new HashMap<>() {}, verbInstance) + "\n");
+                    System.out.println(ShellVerb.call(new HashMap<>() {}, verbInstance));
                 } // end of conditional checking if the input had any options or just a verb
             } else {
                 // if the entered verb is not found then it lets the user know and starts over
-                System.out.print(input[0] + " is not a known command.\n");
+                System.out.println(input[0] + " is not a known command.");
             } // end of the conditional checking the verb entered
         } // end of while loop to repeat the input / output process
     } // end of run method
