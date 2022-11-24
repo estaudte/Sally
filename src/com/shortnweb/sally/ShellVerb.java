@@ -1,4 +1,4 @@
-package com.shortn.sally;
+package com.shortnweb.sally;
 
 import java.util.Collections;
 import java.util.HashMap;

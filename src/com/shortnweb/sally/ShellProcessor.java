@@ -1,4 +1,4 @@
-package com.shortn.sally;
+package com.shortnweb.sally;
 
 import java.util.*;
 import java.util.function.Supplier;

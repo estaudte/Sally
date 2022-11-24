@@ -2,3 +2,5 @@
 src/VerbTest.java
 src/ProcessTest.java
 out
+.idea
+Sally.iml
